@@ -1,0 +1,21 @@
+<ul>
+<li><%=@user.username%></li>
+<li>created at:<%=@user.created_at%></li>
+</ul>
+<%if logged_in? && current_user == @user %>
+  <form method="POST" action="/users">
+   about<br>
+   <input id="about_me" type="text" name="about_me" value="<%=@user.about_me%>">
+   <br>
+   <input type="hidden" name="_method" value="put">
+   change your email<br>
+   <input type="text" name="email" placeholder="youremail@email.com">
+   <input type="hidden" name="id" value=<%=@user.id%>>
+   <input type="submit" value="update!">
+  </form>
+
+  <%else%>
+  <ul><li><%=@user.about_me%></li></ul>
+
+
+  <%end%>

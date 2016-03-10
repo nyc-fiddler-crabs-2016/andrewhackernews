@@ -1,0 +1,23 @@
+<%=@post.title%>
+<%if @post.comments.empty?%>
+<p>No comments yet</pt>
+
+  <%else%>
+<ul>
+  <%@post.comments.each do |comment|%>
+
+    <li><%=comment.body%><ul><li>posted by:<%=comment.user.username%></li><li>posted at:<%=comment.created_at%></li></ul></li>
+    <%end%>
+
+</ul>
+<%end%>
+
+<h3>Leave a comment</h3>
+
+<p>
+  <form method="POST" action="/comments"><br>
+   <input type="text" name="body"><br>
+   <input type="hidden" value="<%=@post.id%>" name="post_id">
+   <input type="submit" value="submit!">
+  </form>
+</p>

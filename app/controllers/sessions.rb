@@ -31,3 +31,5 @@ get '/sessions' do
    @posts = Post.all
     redirect '/'
   end
+
+  # error handling for log in

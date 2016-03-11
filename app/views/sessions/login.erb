@@ -1,5 +1,6 @@
 
 <h3>Login</h3>
+<%=erb :'_login_errors', :locals => {:errors => @errors_login}%>
 
 <p>
   <form method="GET" action="/sessions">  User name:<br>
@@ -11,6 +12,7 @@
 </p>
 
 <h3>Create an account</h3>
+<%=erb :'_errors', :locals => {:errors => @errors}%>
 
 <p>
   <form method="POST" action="/sessions">  User name:<br>

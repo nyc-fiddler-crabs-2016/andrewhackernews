@@ -20,9 +20,11 @@ get '/sessions' do
   logged_in = User.find_by(username: params[:username])
     if logged_in.authenticate(params[:password])
       session[:logged_in] = logged_in.id
-      redirect '/'
+      @posts = Post.all
+    erb :'/index'
     else
-      redirect '/'
+      @errors_login= "please enter a valide username or password"
+     erb :'/sessions/login'
     end
   end
 

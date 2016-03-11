@@ -1,0 +1,7 @@
+<%if @errors%>
+  <%@errors.each do |message, value|%>
+  <ul>
+    <li><%="#{message} "+ value.join(" ")%></li>
+  </ul>
+  <%end%>
+<%end%>

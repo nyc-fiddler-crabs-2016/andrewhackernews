@@ -1,6 +1,9 @@
 <ul>
 <li><%=@user.username%></li>
 <li>created at:<%=@user.created_at%></li>
+<li>total upvotes: <%=@user.total_votes%></li>
+<li><a href="/users/<%=@user.id%>/posts">submissions</a></li>
+<li><a href="/users/<%=@user.id%>/comments">comments</a></li>
 </ul>
 <%if logged_in? && current_user == @user %>
   <form method="POST" action="/users">

@@ -15,7 +15,7 @@
   <nav> <a href="/">Home</a>
     <%if logged_in?%><a href="/sessions/logout">LOG OUT</a>
       <a href="/posts/new">submit a post</a>
-      <a href="/users/<%=current_user.id%>"><%=current_user.username%></a>
+      <a href="/users/<%=current_user.id%>"><%=current_user.username%>(<%=current_user.total_votes%>)</a>
   <%else%>
     <a href="/sessions/login">LOG IN</a>
   <%end%></nav>

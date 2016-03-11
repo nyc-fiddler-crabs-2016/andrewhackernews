@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_many :postvotes
   has_many :commentvotes
 
+  def total_votes
+    self.commentvotes.length + self.postvotes.length
+  end
+
 end

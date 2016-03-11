@@ -1,3 +1,14 @@
+get '/users/:id/posts' do
+  @user = User.find(params[:id])
+  erb :'/users/posts'
+end
+
+get '/users/:id/comments' do
+  @user = User.find(params[:id])
+  erb :'/users/comments'
+end
+
+
 get '/users/:id' do
   if logged_in? && current_user == User.find(params[:id])
     @user = User.find(session[:logged_in])

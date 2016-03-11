@@ -3,11 +3,15 @@
   <%@posts.each do |post|%>
 
   <li><a href="http://www.<%=post.hyperlink%>"><%=post.title%></a>
+    <%if logged_in?%>
      <% if !post.voted_on?(current_user) %>
      <ul> <a class="postvote" href="<%=post.id%>"><img id="upvote-arrow" src="https://www.reddit.com/static/aupgray.gif"></a>
       <span class="votecount"><%=post.postvotes.length%></span> upvotes
      <%else%>
      <ul> <span><%=post.postvotes.length%></span> </a> upvotes
+     <% end %>
+     <%else %>
+     <ul> <a href="<%=post.id%>"><img id="upvote-arrow" src="https://www.reddit.com/static/aupgray.gif"></a><%=post.postvotes.length%> upvotes</span>
      <% end %>
     <li>post by <a href="/users/<%=post.user_id%>"><%=post.user.username%></a></li>
     <li><a href="/posts/<%=post.id%>"><%=post.comments.length%> comments</a></li>

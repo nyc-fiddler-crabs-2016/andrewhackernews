@@ -7,6 +7,12 @@
   <%@post.comments.each do |comment|%>
 
     <li><%=comment.body%><ul><li>posted by:<%=comment.user.username%></li><li>posted at:<%=comment.created_at%></li></ul></li>
+    <ul><li> <% if !comment.voted_on?(current_user) %>
+     <a class="commentvote" href="<%=comment.id%>"><img id="upvote-arrow" src="https://www.reddit.com/static/aupgray.gif"></a>
+      <span class="votecount"><%=comment.commentvotes.length%></span>
+     <%else%>
+     <span><%=post.postvotes.length%></span> </a>
+     <% end %></li></ul>
     <%end%>
 
 </ul>
@@ -21,3 +27,5 @@
    <input type="submit" value="submit!">
   </form>
 </p>
+
+

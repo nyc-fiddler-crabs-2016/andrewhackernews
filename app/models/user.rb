@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :postvotes
-  has_one :postvote, through: :posts
+  has_many :commentvotes
 
 end

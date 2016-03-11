@@ -17,3 +17,5 @@ helpers do
   end
 end
 
+# check this out: http://apidock.com/rails/ActionController/Helpers/ClassMethods/helper_method
+

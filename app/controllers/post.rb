@@ -4,10 +4,12 @@ end
 
 post '/posts' do
   @post = User.find(session[:logged_in]).posts.new(title:params[:title], hyperlink:params[:hyperlink])
+  #lets try to namespace params here
   if @post.save
     redirect '/'
   else
     "NAH"
+    #error handling?
   end
 end
 

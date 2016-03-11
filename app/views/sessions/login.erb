@@ -3,6 +3,7 @@
 <%=erb :'_login_errors', :locals => {:errors => @errors_login}%>
 
 <p>
+<!-- method: POST here to create session -->
   <form method="GET" action="/sessions">  User name:<br>
    <input type="text" name="username"><br>
    Password:<br>
@@ -15,6 +16,7 @@
 <%=erb :'_errors', :locals => {:errors => @errors}%>
 
 <p>
+<!-- action="/users" -->
   <form method="POST" action="/sessions">  User name:<br>
     <input type="text" name="username"><br>
     Password:<br>

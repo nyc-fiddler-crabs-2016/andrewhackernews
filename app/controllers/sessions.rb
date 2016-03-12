@@ -8,9 +8,11 @@ post '/sessions' do
   if @user.save
     @posts = Post.all
     erb :'/index'
+    #probably want redirect here
   else
    @errors = @user.errors.messages
      @posts = Post.all
+     #login needs posts?
     erb :'/sessions/login'
   end
 
@@ -20,6 +22,7 @@ get '/sessions' do
   logged_in = User.find_by(username: params[:username])
     if logged_in.authenticate(params[:password])
       session[:logged_in] = logged_in.id
+      #session[:user_id] so others know what this is
       @posts = Post.all
     erb :'/index'
     else
@@ -29,8 +32,10 @@ get '/sessions' do
   end
 
   get '/sessions/logout' do
+    #delete request, need a form to do this on view
     session.clear
    @posts = Post.all
+   #can't pass anything on a redirect
     redirect '/'
   end
 

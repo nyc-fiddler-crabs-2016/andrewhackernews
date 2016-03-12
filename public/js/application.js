@@ -1,6 +1,7 @@
 $(document).ready(function() {
 $("li").on("click",".postvote",function(event){
       event.preventDefault();
+      // var $that = $(this) so people know it's a jQuery object
       var that = $(this)
       var id = $(this).attr("href")
       var num = $(this).siblings().first().text()
@@ -22,6 +23,7 @@ $("ul li").on("click",".commentvote",function(event){
       event.preventDefault();
       var that = $(this)
       var id = $(this).attr("href")
+      // would .next() accomplish same thing as .siblings().first() ?
       var num = $(this).siblings().first().text()
       $.ajax({
         type: "POST",

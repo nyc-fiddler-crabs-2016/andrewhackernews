@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
   validates :user_id, :post_id, presence: :true
+  # validates :user, :post, presence: true
   belongs_to :user
   belongs_to :post
   has_many :commentvotes

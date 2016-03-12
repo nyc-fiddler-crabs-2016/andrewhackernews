@@ -5,9 +5,11 @@ post '/comments' do
     if @comment.save
      redirect "/posts/#{params[:post_id]}"
     else
+    #error handling?
     'error'
     end
   else
+    #what is this?
   "LOG IN"
   end
 end
